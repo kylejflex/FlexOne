@@ -119,7 +119,7 @@ def main():
             # Add assistant reply and render
             st.session_state.messages.append({"role": "assistant", "content": reply})
             with chat_box:
-                with st.chat_message("assistant", avatar="logo.png"):
+                with st.chat_message("assistant", avatar="logo.svg"):
                     st.markdown(reply)
         
         
