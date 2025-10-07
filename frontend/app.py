@@ -3,6 +3,7 @@ import requests
 
 BACKEND_URL = "http://localhost:8000"
 
+
 def send_chat(messages):
     """
     Send the chat transcript to the backend and return the assistant's reply.
@@ -12,9 +13,10 @@ def send_chat(messages):
     returns: str (assistant reply)
     """
     payload = {"messages": messages}
-    r = requests.post(f"{BACKEND_URL}/chat/details", json=payload, timeout=60)
+    r = requests.post(f"{BACKEND_URL}/chat", json=payload, timeout=60)
     r.raise_for_status()
     return r.json().get("response", "")
+
 
 def main():
 
@@ -82,7 +84,7 @@ def main():
         but to strengthen loyalty, sharpen insights, and build trust.
         """)
 
-        #st.caption("— End of Overview —")
+        # st.caption("— End of Overview —")
 
     with tab2:
 
@@ -92,7 +94,8 @@ def main():
         st.markdown("### What would you like to know?")
 
         # ---- Chat history in a fixed-height scrollable container ----
-        chat_box = st.container(height=420, border=True)  # adjust height to taste
+        # adjust height to taste
+        chat_box = st.container(height=420, border=True)
         with chat_box:
             for msg in st.session_state["messages"]:
                 with st.chat_message(
@@ -104,7 +107,8 @@ def main():
         # ---- Input always below the chat history container ----
         if prompt := st.chat_input("Type your message...", key="tech_chat_input"):
             # Add user message and render instantly
-            st.session_state.messages.append({"role": "user", "content": prompt})
+            st.session_state.messages.append(
+                {"role": "user", "content": prompt})
             with chat_box:
                 with st.chat_message("user", avatar="user.svg"):
                     st.markdown(prompt)
@@ -117,12 +121,12 @@ def main():
                 reply = f"Error contacting backend: {e}"
 
             # Add assistant reply and render
-            st.session_state.messages.append({"role": "assistant", "content": reply})
+            st.session_state.messages.append(
+                {"role": "assistant", "content": reply})
             with chat_box:
                 with st.chat_message("assistant", avatar="logo.svg"):
                     st.markdown(reply)
-        
-        
+
         # --- Knowledge Base Below ---
         st.markdown("---")
 

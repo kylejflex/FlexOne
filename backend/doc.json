@@ -1,0 +1,501 @@
+{
+ "knowledge_base": {
+  "product_name": "FlexOne - Consumer Edge",
+  "version": "v2.0.0",
+  "last_updated": "2025-10-07",
+
+  "categories": {
+   "overview_and_support": {
+    "description": "Product overview, usage guide, and support & maintenance plan",
+    "topics": [
+     {
+      "id": "overview",
+      "title": "What is Consumer Edge",
+      "content": "Consumer Edge is a plug and play style application that can be dynamically trained and configured for different partners. Each business can upload source documents or website links to scrape which their specific model will leverage to provide a solution tailored to their products and use cases. Consumer Edge enables users to construct a customized portal or website embedded agent with their own branding, connected to their specific data."
+     },
+     {
+      "id": "brand_interaction",
+      "title": "How to Use Consumer Edge for Specific Brand Interaction",
+      "steps": [
+       "Navigate to https://csa.dev.flexday.speciphic.ai/solutions",
+       "Login using the required credentials",
+       "In the left-hand sidebar, select Solutions",
+       "From the list of brands, click on Interact for the desired brand",
+       "A chat solution for that brand will appear",
+       "Use the chat to ask questions, raise complaints, provide feedback, or make product-related queries"
+      ],
+      "sample_questions": [
+       "Where can I buy your products in my area?",
+       "Do you sell vegetarian or vegan options?",
+       "How can I file a complaint about a product?",
+       "What’s the difference between your regular and jumbo product lines?"
+      ],
+      "note": "A sample chat portal and interaction screenshot can be added for visual reference."
+     },
+     {
+      "id": "support_and_maintenance",
+      "title": "Support + Maintenance",
+      "sections": [
+       {
+        "section_title": "1. Overview",
+        "content": "This Support & Maintenance Plan outlines the terms and conditions for ongoing support, issue resolution, software updates, and maintenance services provided."
+       },
+       {
+        "section_title": "2. Support Services",
+        "subsections": [
+         {
+          "title": "2.1 Support Tiers & Response Times",
+          "description": "We offer the following levels of support:",
+          "table": [
+           {
+            "Severity Level": "Critical (P1)",
+            "Description": "System is completely down or experiencing major disruptions affecting business operations.",
+            "Response Time": "Within 2 hours",
+            "Resolution Time": "4-8 hours"
+           },
+           {
+            "Severity Level": "High (P2)",
+            "Description": "Significant functionality is impaired, but a workaround is available.",
+            "Response Time": "Within 4 hours",
+            "Resolution Time": "1-2 business days"
+           },
+           {
+            "Severity Level": "Medium (P3)",
+            "Description": "Minor issue with limited impact on functionality.",
+            "Response Time": "Within 1 business day",
+            "Resolution Time": "3-5 business days"
+           },
+           {
+            "Severity Level": "Low (P4)",
+            "Description": "General inquiry, enhancement request, or cosmetic issue.",
+            "Response Time": "Within 2 business days",
+            "Resolution Time": "As per roadmap"
+           }
+          ]
+         },
+         {
+          "title": "2.2 Support Channels",
+          "channels": [
+           "Email Support: support@flexday.ai",
+           "Phone Support: +1-XXX-XXX-XXXX (Available during business hours [Time Zone])"
+          ]
+         }
+        ]
+       },
+       {
+        "section_title": "3. Bug Fixing & Patch Management",
+        "subsections": [
+         {
+          "title": "3.1 Issue Reporting",
+          "steps": [
+           "Clients must report issues through email with a detailed description, screenshots, and steps to reproduce the issue.",
+           "Each issue will be assigned a tracking ID for reference."
+          ]
+         },
+         {
+          "title": "3.2 Resolution Process",
+          "steps": [
+           "Issues will be categorized based on severity and addressed per the response times outlined above.",
+           "Fixes will be tested in a staging environment before being applied to the production system.",
+           "Emergency hotfixes will be deployed immediately if required."
+          ]
+         }
+        ]
+       },
+       {
+        "section_title": "4. Software Updates & Upgrades",
+        "subsections": [
+         {
+          "title": "4.1 Release Schedule",
+          "details": [
+           "Minor Updates & Patches: Released quarterly or as needed for bug fixes and minor enhancements.",
+           "Major Version Releases: Planned annually, introducing new features and architectural improvements or as per client needs."
+          ]
+         },
+         {
+          "title": "4.2 Compatibility & Versioning",
+          "details": [
+           "Updates will maintain backward compatibility unless otherwise specified.",
+           "Clients will be notified in advance of any breaking changes."
+          ]
+         }
+        ]
+       },
+       {
+        "section_title": "5. Performance Monitoring & Optimization",
+        "subsections": [
+         {
+          "title": "5.1 System Health Monitoring",
+          "details": [
+           "Automated monitoring tools will track uptime, performance, and error rates. See Monitoring, Security and Compliance.",
+           "Alerts will be triggered for abnormal activities, and proactive fixes will be implemented. See Monitoring, Security and Compliance."
+          ]
+         },
+         {
+          "title": "5.2 Performance Optimization",
+          "details": [
+           "Regular assessments will be conducted to identify and address performance bottlenecks.",
+           "Clients will receive performance reports as part of quarterly updates."
+          ]
+         }
+        ]
+       },
+       {
+        "section_title": "6. Escalation Matrix",
+        "table": [
+         {
+          "Escalation Level": "Level 1",
+          "Contact Person": "Support Engineer",
+          "Response Time": "Within standard SLA times"
+         },
+         {
+          "Escalation Level": "Level 2",
+          "Contact Person": "Senior Engineer",
+          "Response Time": "Additional 24 hours"
+         },
+         {
+          "Escalation Level": "Level 3",
+          "Contact Person": "Technical Lead",
+          "Response Time": "Additional 48 hours"
+         },
+         {
+          "Escalation Level": "Level 4",
+          "Contact Person": "Support Manager",
+          "Response Time": "Immediate attention"
+         }
+        ]
+       },
+       {
+        "section_title": "7. Client Responsibilities",
+        "responsibilities": [
+         "Provide necessary access and information for troubleshooting.",
+         "Ensure software is used within the recommended infrastructure and specified load conditions."
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "technical_operations": {
+    "description": "Linux service management, deployment, and troubleshooting",
+    "topics": [
+     {
+      "id": "bg_app_service",
+      "title": "Background App Service Management",
+      "content": "The bg-app is the Consumer Edge queue listener that runs as a Linux service on EC2 under systemd.",
+      "commands": {
+       "reload_systemd": [
+        "sudo systemctl daemon-reexec",
+        "sudo systemctl daemon-reload"
+       ],
+       "restart_service": "sudo systemctl restart bg-app.service",
+       "check_status": "sudo systemctl status bg-app.service",
+       "view_logs": "tail -n 50 applogs.log",
+       "view_more_logs": "tail -n 100 applogs.log | less",
+       "stop_service": "sudo systemctl stop bg-app.service",
+       "filter_errors": "grep \"ERROR\" applogs.log | tail -n 20"
+      },
+      "explanation": "Systemd is the Linux service manager. Restarting tells the system to stop the app and start it again cleanly. Logs are written to applogs.log in the app directory. Check if service is 'active (running)' in status output."
+     }
+    ]
+   },
+
+   "testing_scope": {
+    "description": "QA testing strategy, scope, and objectives for Consumer Edge",
+    "topics": [
+     {
+      "id": "test_focus_areas",
+      "title": "Testing Focus Areas",
+      "content": "Current test cycle focuses on web application UI/workflows, backend APIs, core workflows, LLM answer quality, and cross-platform UI behavior.",
+      "modules_in_scope": [
+       "Solution Creation & Configuration (features, UI, data sources)",
+       "Testing & Deploying a Solution",
+       "Using the Solution (querying KB, retrieving answers, maps, feedback form)",
+       "Voice-to-text and Text-to-voice support"
+      ]
+     },
+     {
+      "id": "scope_definition",
+      "title": "In Scope vs Out of Scope",
+      "in_scope": [
+       "Functional testing of business workflows",
+       "Integration testing with modules and 3rd-party APIs",
+       "Usability checks (intuitive design)",
+       "Manual regression testing after fixes"
+      ],
+      "out_of_scope": [
+       "Unit tests (handled by developers)",
+       "Performance/load testing (except small checks)",
+       "Security/penetration testing (unless specifically requested)"
+      ]
+     },
+     {
+      "id": "test_strategy",
+      "title": "Testing Strategy",
+      "approach": "Manual-first testing with exploratory testing to complement scripted cases",
+      "test_levels": [
+       "Integration Testing (module + external systems)",
+       "System Testing (end-to-end, usability, requirements)",
+       "User Acceptance Testing (UAT) with business users",
+       "Regression Testing (Manual) on key workflows after fixes"
+      ]
+     }
+    ]
+   },
+
+   "team_structure": {
+    "description": "Team members and their responsibilities",
+    "topics": [
+     {
+      "id": "team_members",
+      "title": "Project Team",
+      "roles": {
+       "project_leaders": ["Ankur", "Medha Dandamudi"],
+       "cloud_engineers": ["Mayuresh Singh", "Bharat Choudhary"],
+       "developers": [
+        "Kiran Chaitnaya",
+        "Hinesh Miyani",
+        "Irfan Hussain",
+        "Anudeep Metuku",
+        "Devashish Dewangan",
+        "Krishna Sah Teli",
+        "Sai Charan Kavuri"
+       ],
+       "qa_engineers": ["Jutika Kalita", "Manasa Manchala"]
+      }
+     },
+     {
+      "id": "qa_responsibilities",
+      "title": "QA Team Responsibilities",
+      "responsibilities": [
+       "Design and execute manual test cases",
+       "Run integration/system/UAT/regression tests",
+       "Log defects in Jira",
+       "Validate fixes before release",
+       "Report progress and coverage to stakeholders"
+      ]
+     }
+    ]
+   },
+
+   "tools_and_infrastructure": {
+    "description": "Tools and platforms used for testing and development",
+    "topics": [
+     {
+      "id": "testing_tools",
+      "title": "Testing Toolbox",
+      "tools": {
+       "api_testing": "Postman + Swagger",
+       "ui_validation": "Pixelay (Figma plugin) - pixel-perfect UI checks",
+       "load_testing": "JMeter (if needed later)",
+       "defect_tracking": "Jira - defect reporting and tracking"
+      }
+     }
+    ]
+   },
+
+   "acceptance_criteria": {
+    "description": "Definition of done and completion criteria",
+    "topics": [
+     {
+      "id": "completion_criteria",
+      "title": "Testing Completion Criteria",
+      "criteria": {
+       "execution": "100% of planned test cases run; 95% pass",
+       "defects": {
+        "critical_blockers": "No critical/blockers open",
+        "high_priority": "Fixed or have workarounds",
+        "medium_low": "Logged and accepted by stakeholders"
+       },
+       "regression": "All critical business flows retested",
+       "performance_security": "No high/critical issues outstanding",
+       "documentation": "Test summary report prepared and signed off"
+      }
+     }
+    ]
+   },
+
+   "risks_and_assumptions": {
+    "description": "Project risks and underlying assumptions",
+    "topics": [
+     {
+      "id": "testing_risks",
+      "title": "Testing Risks",
+      "risks": [
+       "Tight deadlines leading to less regression coverage",
+       "Unstable test environment causing blocked tests",
+       "Resource constraints resulting in fewer QA cycles",
+       "3rd-party API instability causing end-to-end failures",
+       "Changing requirements late in cycle",
+       "Data availability or compliance issues"
+      ]
+     },
+     {
+      "id": "project_assumptions",
+      "title": "Project Assumptions",
+      "assumptions": [
+       "Test data is ready and compliant",
+       "Environments are stable during test cycles",
+       "QA has required test accounts and access",
+       "3rd-party services are available and responsive",
+       "Requirements are frozen before execution",
+       "Dev support is available for defect triage",
+       "Tools/licenses are available (Postman, Jira, etc.)"
+      ]
+     }
+    ]
+   },
+
+   "deployment_information": {
+    "description": "Latest deployment details and history",
+    "topics": [
+     {
+      "id": "latest_deployment",
+      "title": "v2.0.0 Deployment",
+      "version": "v2.0.0",
+      "deployment_date": "2025-09-18",
+      "environment": "Production/Demo (Release to main)",
+      "deployed_by": ["Devashish Dewangan", "Mayuresh Singh"],
+      "approved_by": "Medha Dandamudi",
+      "deployment_method": "GitHub Actions (CI/CD pipeline)",
+      "summary": {
+       "external_frontend": "Deployed successfully",
+       "internal_frontend": "Deployed after hotfix (pipeline misconfiguration fixed)",
+       "backend_api": "Deployed successfully",
+       "background_app": "Deployed successfully",
+       "database": "Schema created + cumulative updates"
+      },
+      "verification": {
+       "backend_health_check": "Passed",
+       "external_ui": "Loaded successfully",
+       "internal_ui": "Loaded successfully (post-hotfix)",
+       "logs": "No critical errors"
+      }
+     },
+     {
+      "id": "hotfix_details",
+      "title": "v2.0.0 Hotfix Details",
+      "timeline": [
+       {
+        "time": "9:50 AM IST",
+        "event": "Initial Deployment",
+        "components": {
+         "external_ui": "Success",
+         "backend": "Success",
+         "background_app": "Success",
+         "database": "Success",
+         "internal_ui": "Skipped (CI/CD branch misconfiguration)"
+        }
+       },
+       {
+        "time": "11:00 AM IST",
+        "event": "Hotfix Deployment",
+        "fix": "Fixed CI/CD branch issue",
+        "result": "Internal UI deployed successfully"
+       }
+      ],
+      "explanation": "The hotfix corrected only the Internal UI deployment due to an initial CI/CD branch misconfiguration."
+     }
+    ]
+   },
+
+   "qa_workflows": {
+    "description": "Daily QA tasks and checklists",
+    "topics": [
+     {
+      "id": "day2_qa_checklist",
+      "title": "Day-2 QA Checklist",
+      "priorities": [
+       "Regression Testing - validate v2.0.0 didn't break existing flows",
+       "System Testing - end-to-end workflow checks",
+       "Hotfix Validation - confirm Internal UI loading after branch fix"
+      ],
+      "checklist": {
+       "environment_check": [
+        "Confirm Production/Demo is reachable",
+        "Check Internal & External UI load in browser",
+        "Run backend health check endpoint"
+       ],
+       "hotfix_validation": [
+        "Open Internal UI and confirm login + navigation works",
+        "Cross-check alignment with External UI"
+       ],
+       "core_functional_testing": [
+        "Create a solution - configure features, UI, and data sources",
+        "Deploy solution - validate DB updates",
+        "Run queries against KB - check accuracy of LLM answers",
+        "Trigger feedback form - confirm submission works",
+        "Ask for a map - verify rendering"
+       ],
+       "regression_testing": [
+        "Repeat critical workflows from v1.9.x - confirm no breakages",
+        "Validate background queue listener (bg-app) is running"
+       ],
+       "report_and_track": [
+        "Log defects in Jira (tag: v2.0.0)",
+        "Share daily summary with team"
+       ]
+      }
+     },
+     {
+      "id": "blocker_handling",
+      "title": "Handling Blocker Issues",
+      "definition": "Blockers mean we stop release sign-off",
+      "steps": [
+       "Report in Jira with severity = Critical/Blocker",
+       "Notify Devs + PO (Ankur, Medha)",
+       "Tag Cloud Engineers (Mayuresh, Bharat) if infra-related",
+       "Halt UAT until fix is applied"
+      ]
+     }
+    ]
+   },
+
+   "system_testing_areas": {
+    "description": "Core system testing focus areas",
+    "topics": [
+     {
+      "id": "system_test_modules",
+      "title": "System Testing Modules",
+      "modules": [
+       {
+        "name": "Solution Creation & Configuration",
+        "components": ["features", "UI", "data sources"]
+       },
+       {
+        "name": "Solution Deployment",
+        "validation": "Database updates"
+       },
+       {
+        "name": "Knowledge Base Querying",
+        "focus": ["LLM answer accuracy", "response quality"]
+       },
+       {
+        "name": "UI Rendering",
+        "platforms": ["Web", "Mobile"]
+       },
+       {
+        "name": "Voice Integration",
+        "features": ["Voice-to-text", "Text-to-voice"]
+       }
+      ]
+     }
+    ]
+   }
+  },
+
+  "quick_reference": {
+   "welcome_message": "Welcome to FlexOne — your interactive guide for Consumer Edge. I'm your AI assistant — ask me anything to get started.",
+   "common_queries": [
+    "How do I restart the bg-app service?",
+    "What's in scope for testing?",
+    "Who is on the testing team?",
+    "What's the latest deployment?",
+    "What are today's testing tasks?",
+    "How do I check logs for errors?",
+    "What tools are we using?",
+    "When is testing considered complete?"
+   ]
+  }
+ }
+}
